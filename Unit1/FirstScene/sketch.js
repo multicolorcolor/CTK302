@@ -388,7 +388,7 @@ function draw(){
   grassI = grassX + 5;
   grassX = grassX - 0.1;
   
-  if (grassX > 0){
+  if (grassI < 0){
     grassX = 0;
   }
   
