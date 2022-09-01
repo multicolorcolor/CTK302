@@ -1,15 +1,39 @@
-let e1;
+//let fogXtest = [];
+let xoff = 0; //for my grass
+
+let e1; //sad eye
+let teardropY1 = 112; 
+let teardropY2 = 150;
+let fr = 30;
+let starttext;
+let fogX = 0;
+let fogI = 0;
+let secondfogX = 0;
+let secondfogI = 0;
+let grassI = 0;
+let grassX = 0;
+//let fogX1 = 0;
+
 
 function setup() {
   createCanvas(720, 400);
+  frameRate(fr);
+  noiseSeed(5);
   
-
+  startcolor = ("#484c58");
+  eyecolor = ("#ffffff");
+  normaleye = color("#ffffff");
+  redeye = color("#ffaebd");
   e1 = new Eye(370, 100, 100);
   
   }
 
-
+function drawFog(){
+  fill("#c0e2ff")
+  bezier(36, 365, 10, 366, 11, 357, 43, 337);
+}
 function draw(){
+  
   background("#9cdbf5");
   noStroke();
   
@@ -52,39 +76,66 @@ function draw(){
   //blue green tree on right
   fill("#6b8f96");
   quad(460, 234, 491, 196, 532, 221, 500, 251);
+  fill("#6b8f96");
   quad(454, 249, 505, 216, 540, 241, 500, 281);
+  fill("#6b8f96");
   quad(443, 269, 505, 236, 550, 261, 500, 301);
+  fill("#6b8f96");
   quad(436, 289, 505, 236, 560, 281, 500, 331);
+  fill("#6b8f96");
   quad(426, 309, 505, 256, 570, 301, 500, 341);
+  fill("#6b8f96");
   quad(426, 329, 505, 276, 570, 321, 500, 361);
+  fill("#6b8f96");
   quad(420, 359, 505, 306, 576, 351, 500, 391);
+  fill("#6b8f96");
   quad(410, 380, 505, 330, 590, 377, 500, 400);
   
   //blue green tree on left
   fill("#6b8f96");
   quad(192, 214, 220, 166, 248, 206, 225, 221);
+  fill("#6b8f96");
   quad(185, 234, 220, 196, 257, 221, 225, 251);
+  fill("#6b8f96");
   quad(179, 249, 230, 226, 260, 241, 225, 281);
+  fill("#6b8f96");
   quad(170, 269, 230, 236, 280, 261, 225, 301);
+  fill("#6b8f96");
   quad(160, 289, 230, 236, 285, 281, 225, 331);
+  fill("#6b8f96");
   quad(151, 309, 230, 256, 295, 301, 225, 341);
+  fill("#6b8f96");
   quad(151, 329, 230, 276, 315, 321, 225, 361);
+  fill("#6b8f96");
   quad(145, 359, 230, 306, 317, 351, 225, 391);
+  fill("#6b8f96");
   quad(135, 380, 230, 330, 325, 377, 225, 400);
   
    
   //gray tree on left
   fill("#97a8c1");
   quad(12, 104, 44, 65, 93, 104, 55, 115);
+  fill("#97a8c1");
   quad(2, 129, 47, 95, 100, 125, 58, 145);
+  fill("#97a8c1");
   quad(0, 159, 47, 115, 106, 164, 41, 197);
+  fill("#97a8c1");
   quad(0, 190, 47, 135, 125, 195, 0, 220);
+  fill("#97a8c1");
   quad(9, 200, 47, 150, 128, 220, 0, 250);
+  fill("#97a8c1");
   quad(9, 210, 47, 150, 128, 220, 0, 250);
+   fill("#97a8c1");
   quad(0, 230, 47, 170, 145, 245, 0, 266);
+  fill("#97a8c1");
   quad(7, 245, 68, 225, 177, 290, 0, 285);
+  fill("#97a8c1");
   quad(0, 280, 68, 250, 177, 330, 0, 345);
+  fill("#97a8c1");
   quad(0, 310, 68, 280, 220, 375, 0, 385);
+  
+  
+// fog should be placed here
   
   //gray tree on right
   fill("#97a8c1");
@@ -109,6 +160,64 @@ function draw(){
   quad(610, 333, 720, 250, 720, 330, 720, 345);
   fill("#97a8c1");
   quad(550, 400, 680, 310, 720, 336, 720, 385);
+  
+  //fog
+  fogColor = color("#d9edff");
+  fogColor.setAlpha(95);
+  fill(fogColor);
+  bezier(fogX + 720, 365, fogX + 694, 366, fogX + 695, 357, fogX + 727, 337);
+  bezier(fogX + 718, 353, fogX + 731, 301, fogX + 794, 309, fogX + 829, 349);
+  bezier(fogX + 806, 353, fogX + 830, 264, fogX + 949, 296, fogX + 985, 353);
+  bezier(fogX + 788, 353, fogX + 783, 305, fogX + 819, 309, fogX + 836, 353);
+  
+  bezier(fogX + 907, 350, fogX + 965, 193, fogX + 1103, 203, fogX + 1243, 337);
+  
+  bezier(fogX + 1155, 285, fogX + 1182, 219, fogX + 1210, 217, fogX + 1274, 234);
+  bezier(fogX + 1090, 281, fogX + 1134, 240, fogX + 1218, 248, fogX + 1295, 272);
+  bezier(fogX + 1104, 338, fogX + 1250, 177, fogX + 1306, 193, fogX + 1367, 336);
+  bezier(fogX + 1311, 293, fogX + 1404, 329, fogX + 1404, 364, fogX + 1310, 376);
+  bezier(fogX + 1114, 337, fogX + 1144, 385, fogX + 1353, 425, fogX + 1334, 328);
+  bezier(fogX + 854, 325, fogX + 914, 415, fogX + 1140, 415, fogX + 1251, 325);
+  bezier(fogX + 712, 353,fogX + 792, 400, fogX + 884, 400, fogX + 1038, 353);
+  bezier(fogX + 727, 341, fogX + 697, 373, fogX + 747, 388, fogX + 805, 345);  
+  
+  fogI = fogX + 1404;
+  fogX = fogX - 0.5;
+  
+  if (fogI < 0){
+    fogX = 0;
+  }
+  
+  
+  //second fog
+  
+  //fog
+  fogColor = color("#d9edff");
+  fogColor.setAlpha(95);
+  fill(fogColor);
+  bezier(secondfogX + 1120, 365, secondfogX + 1094, 366, secondfogX + 1095, 357, secondfogX + 1127, 337);
+  bezier(secondfogX + 1118, 353, secondfogX + 1131, 301, secondfogX + 1194, 309, secondfogX + 1229, 349);
+  bezier(secondfogX + 1206, 353, secondfogX + 1230, 264, secondfogX + 1349, 296, secondfogX + 1385, 353);
+  bezier(secondfogX + 1188, 353, secondfogX + 1188, 305, secondfogX + 1219, 309, secondfogX + 1236, 353);
+  
+  bezier(secondfogX + 1307, 350, secondfogX + 1365, 193, secondfogX + 1503, 203, secondfogX + 1643, 337);
+  
+  bezier(secondfogX + 1555, 285, secondfogX + 1582, 219, secondfogX + 1610, 217, secondfogX + 1674, 234);
+  bezier(secondfogX + 1490, 281, secondfogX + 1534, 240, secondfogX + 1618, 248, secondfogX + 1695, 272);
+  bezier(secondfogX + 1504, 338, secondfogX + 1650, 177, secondfogX + 1706, 193, secondfogX + 1767, 336);
+  bezier(secondfogX + 1711, 293, secondfogX + 1804, 329, secondfogX + 1804, 364, secondfogX + 1710, 376);
+  bezier(secondfogX + 1614, 337, secondfogX + 1644, 385, secondfogX + 1753, 425, secondfogX + 1734, 328);
+  bezier(secondfogX + 1254, 325, secondfogX + 1314, 415, secondfogX + 1540, 415, secondfogX + 1651, 325);
+  bezier(secondfogX + 1112, 353, secondfogX + 1192, 400, secondfogX + 1284, 400, secondfogX + 1438, 353);
+  bezier(secondfogX + 1127, 341, secondfogX + 1097, 373, secondfogX + 1147, 388, secondfogX + 1205, 345);  
+  
+  secondfogI = secondfogX + 1804;
+  secondfogX = secondfogX - 0.5;
+  
+  if (secondfogI < 0){
+    secondfogX = 0;
+  }
+  
   
   //blue green tree on left 1
   fill("#6b8f96");
@@ -157,6 +266,10 @@ function draw(){
   fill("#3a575a");
   quad(165, 371, 200, 347, 251, 381, 200, 400);
   
+  
+  
+  
+  
   //hoton grass
   fill("#197000");
   triangle(464, 299, 494, 315, 475, 315);
@@ -195,6 +308,7 @@ function draw(){
   quad(436, 389, 475, 315, 610, 305, 654, 381);
   fill("#4c3714");
   quad(654, 381, 610, 305, 645, 314, 694, 379);
+  fill("#4c3714");
   quad(509, 373, 513, 342, 533, 342, 535, 372);
   
   
@@ -239,6 +353,8 @@ function draw(){
   fill("#ffd488");
   quad(700, 385, 697, 346, 702, 344, 705, 385);
   
+
+  
  
   
   //darkgrass
@@ -249,25 +365,39 @@ function draw(){
   
    //grass closer layer
   fill("#388300");
-  triangle(28, 353, 26, 400, 18, 400);
-  triangle(9, 365, 38, 400, 26, 400);
-  triangle(45, 373, 42, 400, 31, 400);
-  triangle(0, 369, 19, 400, 0, 400);
-  triangle(66, 337, 59, 400, 48, 400);
-  triangle(104, 345, 74, 400, 64, 400);
-  triangle(73, 329, 90, 400, 79, 400);
-  triangle(105, 377, 106, 400, 94, 400);
-  triangle(576, 352, 592, 400, 578, 400);
-  triangle(630, 350, 612, 400, 603, 400);
-  triangle(555, 377, 570, 400, 562, 400);
-  triangle(601, 354, 626, 400, 618, 400);
-  triangle(659, 356, 644, 400, 634, 400);
-  triangle(631, 377, 657, 400, 648, 400);
-  triangle(663, 367, 673, 400, 658, 400);
-  triangle(690, 335, 693, 400, 681, 400);
-  triangle(720, 332, 712, 400, 698, 400);
+  xoff = xoff +0.01;
+  let n = noise(xoff) * width;
+  triangle(grassX + 28, 353, 26, 400, 18, 400);
+  triangle(grassX + 9, 365, 38, 400, 26, 400);
+  triangle(grassX + 45, 373, 42, 400, 31, 400);
+  triangle(grassX + 0, 369, 19, 400, 0, 400);
+  triangle(grassX + 66, 337, 59, 400, 48, 400);
+  triangle(grassX + 104, 345, 74, 400, 64, 400);
+  triangle(grassX + 73, 329, 90, 400, 79, 400);
+  triangle(grassX + 105, 377, 106, 400, 94, 400);
+  triangle(grassX + 576, 352, 592, 400, 578, 400);
+  triangle(grassX + 630, 350, 612, 400, 603, 400);
+  triangle(grassX + 555, 377, 570, 400, 562, 400);
+  triangle(grassX + 601, 354, 626, 400, 618, 400);
+  triangle(grassX + 659, 356, 644, 400, 634, 400);
+  triangle(grassX + 631, 377, 657, 400, 648, 400);
+  triangle(grassX + 663, 367, 673, 400, 658, 400);
+  triangle(grassX + 690, 335, 693, 400, 681, 400);
+  triangle(grassX + 720, 332, 712, 400, 698, 400);
+  
+  grassI = grassX + 5;
+  grassX = grassX - 0.1;
+  
+  if (grassX > 0){
+    grassX = 0;
+  }
   
   
+  
+  
+  
+  
+    
   
   
   fill(255);
@@ -293,14 +423,26 @@ function draw(){
   strokeWeight(6);
   ellipse(370, 100, 98, 98);
   
-
   
+  
+  
+
+  //countours for eyelids
   noFill();
   strokeWeight(3);
 stroke("#484c58");
 bezier(323, 117, 346, 144, 396, 141, 418, 115);
 bezier(321, 101, 343, 77, 392, 79, 419, 95);
   ellipse(370, 100, 100, 100);
+  
+  fill("#7a9ed9");
+  noStroke();
+  bezier(319, teardropY1, 306, teardropY2, 337, teardropY2, 320, teardropY1);
+  teardropY1 = teardropY1 + 4;
+  teardropY2 = teardropY2 + 4;
+  
+  //circle(321, 126, 10, 10);
+  //bezier(318, 102, 311, 130, 317, 129, 326, 121);
   
   //blend eyelids
   
@@ -312,13 +454,15 @@ bezier(321, 101, 343, 77, 392, 79, 419, 95);
   //fill("#450007");
   //ellipse(370, 133, 100, 100);
   
-  
+  noFill();
+  strokeWeight(3);
+stroke(startcolor);
   textSize(32);
-text('саҕалаа', 53, 207);
+starttext = text('саҕалаа', 53, 207);
   
   
-  textSize(32);
-text('тахсыы', 562, 224);
+  
+//text('тахсыы', 562, 224);
  
   
   
@@ -345,7 +489,7 @@ function Eye(tx, ty, ts) {
       
     
     noStroke;
-    fill(255);
+    fill(eyecolor);
     ellipse(0, 0, this.size, this.size);
     rotate(this.angle);
     fill("#66450e");
@@ -358,6 +502,27 @@ function Eye(tx, ty, ts) {
     pop();
     
     
+    
+    
   };
   
+}
+
+
+function mousePressed() {
+  
+  if (startcolor === "#484c58") {
+    eyecolor = ("#ffd1d9");
+    //eyecolor = lerpColor(normaleye, redeye, 0.5);
+    //eyecolor = lerpedcolor;
+    //fill(lerpedcolor);
+  //rect(170, 30, 50, 100);
+     //teardrop
+  startcolor = ("#adb0c8"); 
+    
+  
+    
+    //starttext.remove();
+    
+  }
 }
