@@ -65,7 +65,7 @@ var clickedoncharacterinfo;
 let characterinfobutton = false;
 let tutorial = true;
 let characterinfo = false;
-let charactertext;
+//let charactertext;
 
 
 anim = 0
@@ -73,7 +73,7 @@ anim = 0
 let fr = 30;
 
 function preload(){
-  charactertext = loadStrings('assets/suorij.txt');
+  //charactertext = loadStrings('assets/suorij.txt');
 }
 
 function setup() {
@@ -895,7 +895,7 @@ function draw() {
   quad(414, 92, 621, 90, 626, 276, 414, 285);
   fill("black");
   textSize(12);
-  text(charactertext, 310, 281, 100, 200);
+  //text(charactertext, 310, 281, 100, 200);
  
 }
 
