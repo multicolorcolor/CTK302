@@ -60,7 +60,7 @@ let bodyy1;
 let bodyx2;
 let bodyy2;
 //let [suorx1, suorx2, suorx3, suorx4];
-let clicked = false;
+var clicked;
 var clickedoncharacterinfo;
 let characterinfobutton = false;
 let tutorial = true;
@@ -70,8 +70,19 @@ let scrolltextup;
 let scrolltextdown;
 let cnv;
 
-let charactername;
-// pronounces, states, backstory, hornsp1, hornsp2, clothing, worklog;
+let horns1 = true;
+let horns2 = true;
+let horns3 = true;
+
+
+//let charactername; 
+//let pronounces;
+//let states;
+//let backstory;
+//let hornsp1;
+//let hornsp2;
+//let clothing;
+//let worklog;
 
 
 anim = 0
@@ -80,14 +91,14 @@ let fr = 30;
 
 function preload(){
   charactertext = loadStrings('suorij.txt');
-  charactername = loadStrings('name.txt');
-  pronounces = loadStrings('pronounces.txt');
-  states = loadStrings('states.txt');
-  backstory = loadStrings('backstory');
-  hornsp1 = loadStrings('hornsp1');
-  hornsp2 = loadStrings('hornsp2');
-  clothing = loadStrings('clothing');
-  worklog = loadStrings('worklog');
+  //charactername = loadStrings('name.txt');
+  //pronounces = loadStrings('pronounces.txt');
+  //states = loadStrings('states.txt');
+  //backstory = loadStrings('backstory');
+  //hornsp1 = loadStrings('hornsp1');
+  //hornsp2 = loadStrings('hornsp2');
+  //clothing = loadStrings('clothing');
+  //worklog = loadStrings('worklog');
   
 }
 
@@ -265,10 +276,38 @@ function draw() {
   bezier(518, 48, 553, 48, 553, 90, 523, 95);
   noStroke();
   
+  if (characterinfo){
+    fill("#fff9dd");
+quad(270, 39, 419, 39, 437, 95, 270, 76);
+quad(433, 39, 570, 39, 575, 116, 416, 93);
+quad(582, 39, 693, 39, 693, 197, 535, 158);
+quad(270, 85, 522, 57, 513, 225, 270, 204);
+quad(270, 217, 445, 182, 435, 310, 270, 310);
+quad(420, 267, 580, 203, 693, 310, 450, 310);
+quad(610, 150, 693, 210, 693, 310, 578, 233);
+quad(414, 92, 621, 90, 626, 276, 414, 285);
+fill("black");
+textSize(12);
+text(charactertext, 327, scrolltextup, 300, 700);
+fill(220);
+quad(322, 0, 630, 0, 630, 70, 322, 70);
+fill("#35523d");
+quad(322, 275, 630, 275, 630, 400, 322, 400);
+fill("#fff9dd");
+quad(322, 39, 630, 39, 630, 70, 322, 70);
+quad(322, 275, 630, 275, 630, 310, 322, 310);
+fill("#960f48");
+textSize(20);
+stroke("#960f48");
+strokeWeight(1);
+text("</3", 640, 74);
+noStroke();
   
+}
   
   //WALKING ANIMATION FROM LEFT TO RIGHT
   
+  if (horns1){
   //antlers
   noFill();
   stroke(BlackLtR);
@@ -312,6 +351,8 @@ function draw() {
   bezier(163 + moveright + moveleft, 65, 164 + moveright + moveleft, 82, 188 + moveright + moveleft, 78, 163 + moveright + moveleft, 65);
   bezier(218 + moveright + moveleft, 52, 236 + moveright + moveleft, 69, 242 + moveright + moveleft, 53, 218 + moveright + moveleft, 52);
   
+  }
+
   //hair
   fill(BlackLtR);
   bezier(107 + moveright + moveleft, 95, 92 + moveright + moveleft, 78, 104 + moveright + moveleft, 48, 125 + moveright + moveleft, 60);
@@ -427,7 +468,7 @@ function draw() {
   
   
   //IDLE ANIMATION FOR LEFT TO RIGHT
-  
+  if (horns2){
   //antlers
   noFill();
   stroke(IdleBlackLtR);
@@ -471,6 +512,8 @@ function draw() {
   bezier(163 + moveright + moveleft, 65, 164 + moveright + moveleft, 82, 188 + moveright + moveleft, 78, 163 + moveright + moveleft, 65);
   bezier(218 + moveright + moveleft, 52, 236 + moveright + moveleft, 69, 242 + moveright + moveleft, 53, 218 + moveright + moveleft, 52);
   
+  }
+
   //hair
   fill(IdleBlackLtR);
   bezier(107 + moveright + moveleft, 95, 92 + moveright + moveleft, 78, 104 + moveright + moveleft, 48, 125 + moveright + moveleft, 60);
@@ -587,7 +630,7 @@ function draw() {
   
   
   //WALKING ANIMATION FOR RIGHT TO LEFT
-  
+  if (horns3){
   //antlers
   noFill();
   stroke(BlackRtL);
@@ -630,6 +673,8 @@ function draw() {
   bezier(71 + moveright + moveleft, 65, 70 + moveright + moveleft, 82, 46 + moveright + moveleft, 78, 71 + moveright + moveleft, 65);
   bezier(16 + moveright + moveleft, 52, -2 + moveright + moveleft, 69, -8 + moveright + moveleft, 53, 16 + moveright + moveleft, 52);
   
+  }
+
   //hair
   fill(BlackRtL);
   bezier(127 + moveright + moveleft, 95, 142 + moveright + moveleft, 78, 130 + moveright + moveleft, 48, 109 + moveright + moveleft, 60);
@@ -863,16 +908,8 @@ function draw() {
   //noFill;
   //quad(bodyx1+ moveright + moveleft, bodyy1, bodyx2+ moveright + moveleft, bodyy1, bodyx2+ moveright + moveleft, bodyy2, bodyx1+ moveright + moveleft, bodyy2);
   
-   if (clicked === true){
-  fill("white");
-  quad(82, 301, 660, 301, 660, 353, 82, 353);
-     fill("black");
-     textSize(16);
-     text("SUOR IJ: Yup, I see that you clicked on me. Clap-clap-clap", 92, 333);
-     //if (mouseClicked){
-       //clicked = false;
-     //}
-  }
+  
+
   if (tutorial === true){
     textSize(28);
     fill("white");
@@ -890,29 +927,16 @@ function draw() {
     
   }
   
-  if (characterinfo){
-       fill("#fff9dd");
-  quad(270, 39, 419, 39, 437, 95, 270, 76);
-  quad(433, 39, 570, 39, 575, 116, 416, 93);
-  quad(582, 39, 693, 39, 693, 197, 535, 158);
-  quad(270, 85, 522, 57, 513, 225, 270, 204);
-  quad(270, 217, 445, 182, 435, 310, 270, 310);
-  quad(420, 267, 580, 203, 693, 310, 450, 310);
-  quad(610, 150, 693, 210, 693, 310, 578, 233);
-  quad(414, 92, 621, 90, 626, 276, 414, 285);
-  }
-       fill("#fff9dd");
-  quad(270, 39, 419, 39, 437, 95, 270, 76);
-  quad(433, 39, 570, 39, 575, 116, 416, 93);
-  quad(582, 39, 693, 39, 693, 197, 535, 158);
-  quad(270, 85, 522, 57, 513, 225, 270, 204);
-  quad(270, 217, 445, 182, 435, 310, 270, 310);
-  quad(420, 267, 580, 203, 693, 310, 450, 310);
-  quad(610, 150, 693, 210, 693, 310, 578, 233);
-  quad(414, 92, 621, 90, 626, 276, 414, 285);
-  fill("black");
-  textSize(12);
-  text(charactername, 327, scrolltextup, 300, 700);
+  if (clicked){
+    fill("white");
+    quad(82, 301, 660, 301, 660, 353, 82, 353);
+       fill("black");
+       textSize(16);
+       text("SUOR IJ: Yup, I see that you clicked on me. Clap-clap-clap", 92, 333);
+       //if (mouseClicked){
+         //clicked = false;
+       //}
+    }
  
 }
 
@@ -921,14 +945,18 @@ function draw() {
 //}
 function mouseClicked(){
   if (mouseX > bodyx1+ moveright + moveleft && mouseX < bodyx2+ moveright + moveleft && mouseY > bodyy1 && mouseY < bodyy2){
-  clicked = true; 
+  clicked = !clicked; 
     tutorial = false;
     characterinfobutton = true;
   }
   if (mouseX > 522 && mouseX<694 && mouseY > 330 && mouseY < 358 && characterinfobutton === true){
   characterinfo = !characterinfo;
   }
-  
+  if (mouseX > 640 && mouseX < 668 && mouseY > 56 && mouseY < 77 && characterinfo === true){
+    horns1 = !horns1;
+    horns2 = !horns2;
+    horns3 = !horns3;
+  }
 }
 
 function keyPressed(){
@@ -977,4 +1005,4 @@ function mouseWheel(event){
 //9/12 - 3pm start - finished for today by 7:38pm
 //25 hours total so far
 
-//9/13 - 8pm start
+//9/13 - 8pm start - 12:30 finish. pretty sure this is over for now
