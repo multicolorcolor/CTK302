@@ -288,7 +288,7 @@ quad(610, 150, 693, 210, 693, 310, 578, 233);
 quad(414, 92, 621, 90, 626, 276, 414, 285);
 fill("black");
 textSize(12);
-text(charactertext, 327, scrolltextup, 300, 700);
+text(charactertext, 327, scrolltextup, 300, 1000);
 fill(220);
 quad(322, 0, 630, 0, 630, 70, 322, 70);
 fill("#35523d");
