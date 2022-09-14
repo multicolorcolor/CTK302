@@ -98,6 +98,7 @@ function draw() {
  
   
   fill(255);
+  textSize(12);
   text(mouseX + ", " + mouseY, 20, 20);
   
   //COLORS FOR ANIMATED FIGURE LTR
