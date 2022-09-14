@@ -1,6 +1,4 @@
-Name: Suor Ij. It means Moon of Raven in Sakha language. I was also leaning towards Kunney/Kun, which means Sun. I thought it'd be funny with her personality. But I'm sticking with Suor Ij because I decided to use muted color palette for the game and character design. And I think the game might become dark.
-
-Pronounces: she/her
+Name: Suor Ij. It means Moon of Raven in Sakha language. I was also leaning towards Kunney/Kun, which means Sun. I thought it'd be funny with her personality. But I'm sticking with Suor Ij because I decided to use muted color palette for the game and character design. And I think the game might become dark. \nPronounces: she/her
 
 States: Right now she can walk left/right with A and D. Talks back to the player when clicked
 
