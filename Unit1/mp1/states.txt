@@ -1,0 +1,1 @@
+States: Right now she can walk left/right with A and D. Talks back to the player when clicked

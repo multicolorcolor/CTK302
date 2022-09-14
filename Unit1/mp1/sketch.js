@@ -66,6 +66,12 @@ let characterinfobutton = false;
 let tutorial = true;
 let characterinfo = false;
 let charactertext;
+let scrolltextup;
+let scrolltextdown;
+let cnv;
+
+let charactername;
+// pronounces, states, backstory, hornsp1, hornsp2, clothing, worklog;
 
 
 anim = 0
@@ -74,10 +80,21 @@ let fr = 30;
 
 function preload(){
   charactertext = loadStrings('suorij.txt');
+  charactername = loadStrings('name.txt');
+  pronounces = loadStrings('pronounces.txt');
+  states = loadStrings('states.txt');
+  backstory = loadStrings('backstory');
+  hornsp1 = loadStrings('hornsp1');
+  hornsp2 = loadStrings('hornsp2');
+  clothing = loadStrings('clothing');
+  worklog = loadStrings('worklog');
+  
 }
 
 function setup() {
   createCanvas(720, 400);
+  //cnv.mouseWheel(changeSize);
+  scrolltextup = 80;
   frameRate(fr);
   //SkinLtR1 = color("#ffcdba");
   //fill("black");
@@ -895,7 +912,7 @@ function draw() {
   quad(414, 92, 621, 90, 626, 276, 414, 285);
   fill("black");
   textSize(12);
-  text(charactertext, 327, 80, 300, 180);
+  text(charactername, 327, scrolltextup, 300, 700);
  
 }
 
@@ -936,6 +953,15 @@ function keyReleased(){
     SkinLtR1 = ("#82afd6");
       
     
+  }
+}
+
+function mouseWheel(event){
+  if (event.deltaY > 0) {
+    scrolltextup = scrolltextup + 5;
+  }
+  else {
+    scrolltextup = scrolltextup - 5;
   }
 }
 
