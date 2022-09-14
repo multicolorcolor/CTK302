@@ -73,7 +73,7 @@ anim = 0
 let fr = 30;
 
 function preload(){
-  charactertext = loadStrings('assets/suorij.txt');
+  charactertext = loadStrings('suorij.txt');
 }
 
 function setup() {
