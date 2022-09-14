@@ -895,7 +895,7 @@ function draw() {
   quad(414, 92, 621, 90, 626, 276, 414, 285);
   fill("black");
   textSize(12);
-  text(charactertext, 327, 80, 500, 200);
+  text(charactertext, 327, 80, 300, 180);
  
 }
 
