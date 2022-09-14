@@ -2,8 +2,8 @@
 let xoff = 0; //for my grass
 
 let e1; //sad eye
-let teardropY1 = 112; 
-let teardropY2 = 150;
+let teardropY1 = 0; 
+let teardropY2 = 0;
 let fr = 30;
 let starttext;
 let fogX = 0;
@@ -13,6 +13,8 @@ let secondfogI = 0;
 let grassI = 0;
 let grassX = 0;
 //let fogX1 = 0;
+let clicked = false;
+let cry = 0;
 
 
 function setup() {
@@ -39,7 +41,12 @@ function draw(){
   
   e1.update(mouseX, mouseY);
   e1.display();
-  
+  stroke("white");
+  strokeWeight(1);
+    textSize(25);
+  fill("white");
+text('cry your eyes out', 321, 180, 125, 150);
+  noStroke();
   
   //far away forest and dawn
   fill("#a9c4e0")
@@ -187,6 +194,7 @@ function draw(){
   if (fogI < 0){
     fogX = 0;
   }
+  //print(fogI);
   
   
   //second fog
@@ -354,6 +362,8 @@ function draw(){
   quad(700, 385, 697, 346, 702, 344, 705, 385);
   
 
+  //randomtreeattempt
+  
   
  
   
@@ -365,8 +375,8 @@ function draw(){
   
    //grass closer layer
   fill("#388300");
-  xoff = xoff +0.01;
-  let n = noise(xoff) * width;
+  //xoff = xoff +0.01;
+  //let n = noise(xoff) * width;
   triangle(grassX + 28, 353, 26, 400, 18, 400);
   triangle(grassX + 9, 365, 38, 400, 26, 400);
   triangle(grassX + 45, 373, 42, 400, 31, 400);
@@ -385,10 +395,20 @@ function draw(){
   triangle(grassX + 690, 335, 693, 400, 681, 400);
   triangle(grassX + 720, 332, 712, 400, 698, 400);
   
-  grassI = grassX + 5;
-  grassX = grassX - 0.1;
+  //grassX = grassX + random(-0.5,0.5);
+  //grassX = grassX - 0.1;
   
-  if (grassI < 0){
+  //if (grassI < 0){
+    //grassX = 0;
+  //}
+  
+  if (frameCount % 10 === 0){
+    grassX = 2;
+  }
+  if (frameCount % 20 === 0){
+    grassX = 3;
+  }
+  if (frameCount % 40 === 0){
     grassX = 0;
   }
   
@@ -396,10 +416,9 @@ function draw(){
   
   
   
-  
     
   
-  
+  textSize(14);
   fill(255);
   text(mouseX + ", " + mouseY, 20, 20);
   
@@ -435,11 +454,11 @@ bezier(323, 117, 346, 144, 396, 141, 418, 115);
 bezier(321, 101, 343, 77, 392, 79, 419, 95);
   ellipse(370, 100, 100, 100);
   
-  fill("#7a9ed9");
-  noStroke();
-  bezier(319, teardropY1, 306, teardropY2, 337, teardropY2, 320, teardropY1);
-  teardropY1 = teardropY1 + 4;
-  teardropY2 = teardropY2 + 4;
+  //fill("#7a9ed9");
+  //noStroke();
+  //bezier(319, teardropY1 + 112, 306, teardropY2 + 150, 337, teardropY2 + 150, 320, teardropY1 + 112);
+  //teardropY1 = teardropY1 + 4;
+  //teardropY2 = teardropY2 + 4;
   
   //circle(321, 126, 10, 10);
   //bezier(318, 102, 311, 130, 317, 129, 326, 121);
@@ -454,16 +473,52 @@ bezier(321, 101, 343, 77, 392, 79, 419, 95);
   //fill("#450007");
   //ellipse(370, 133, 100, 100);
   
+ // noFill();
+ //strokeWeight(3);
+//stroke(startcolor);
+ 
+//starttext = text('саҕалаа', 53, 207);
+  
+  noStroke();
+  fill("#7a9ed9");
+  quad(0, 400 - cry, 720, 400 - cry, 720 , 410,  0, 410);
+  
+
+if (clicked === true) {
+  fill("#7a9ed9");
+  noStroke();
+  bezier(319, teardropY1 + 112, 306, teardropY2 + 150, 337, teardropY2 + 150, 320, teardropY1 + 112);
+  teardropY1 = teardropY1 + 4;
+  teardropY2 = teardropY2 + 4;
+  cry = cry + 0.3;
+}
+  if (frameCount % 125 === 0){
+    clicked = false;
+  teardropY1 = 0;
+  teardropY2 = 0;
+  }
+  textSize(22);
+  stroke("#9cdbf5");
+  strokeWeight(1);
+  fill("#9cdbf5");
+  text("I'm sorry it happened to you", 255, 173);
+  text("It will get", 128, 89);
+  text("better", 422, 37);
+  text("someday", 535, 15);
+  noStroke();
+  fill("#2b641a");
+  text("I'm here", 112, 393);
+  fill("#66450e");
+  text("I hear you", 478, 334);
+  
   noFill();
   strokeWeight(3);
-stroke(startcolor);
-  textSize(32);
-starttext = text('саҕалаа', 53, 207);
+stroke("#484c58");
+  ellipse(370, 100, 100, 100);
+  
+  noStroke();
   
   
-  
-//text('тахсыы', 562, 224);
- 
   
   
   textSize(16);
@@ -471,7 +526,7 @@ starttext = text('саҕалаа', 53, 207);
     print(mouseX + ", " + mouseY);
   }
 }
-
+//eye is from this example https://p5js.org/examples/math-arctangent.html
 function Eye(tx, ty, ts) {
   this.x = tx;
   this.y = ty;
@@ -509,20 +564,23 @@ function Eye(tx, ty, ts) {
 }
 
 
-function mousePressed() {
+function mouseClicked() {
   
-  if (startcolor === "#484c58") {
-    eyecolor = ("#ffd1d9");
+  //if (startcolor === "#484c58") {
+   // eyecolor = ("#ffd1d9");
     //eyecolor = lerpColor(normaleye, redeye, 0.5);
     //eyecolor = lerpedcolor;
     //fill(lerpedcolor);
   //rect(170, 30, 50, 100);
      //teardrop
-  startcolor = ("#adb0c8"); 
+  //startcolor = ("#adb0c8"); 
     
   
     
     //starttext.remove();
     
-  }
-}
+  //}
+  
+  if (mouseX > 318 && mouseX < 421 && mouseY > 49 && mouseY < 150){
+  clicked = true;  
+}}
