@@ -6,7 +6,7 @@ function preload(){
 function setup() {
   createCanvas(500, 500);
   //TextAlign(CENTER);
-  museum.isPlaying();
+  museum.play();
 }
 
 function draw() {
