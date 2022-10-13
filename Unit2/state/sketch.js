@@ -10,26 +10,72 @@ background(220);
 switch (state) {
   case 0:
   background("red");
-  text("case 0", 100, 100);
+  for (let j = 0; j <= height; j += 20){
+    for (let i = 0; i <= width; i += 25){
+      textSize(21);
+      text(":(", i, j, 20, 20);
+
+    }
+    
+  }
   
   break;
 
   case 1:
   background("green");
-  text("case 1", 100, 100);
+  for (let j = 0; j <= height; j += 5){
+    for (let i = 0; i <= width; i += 25){
+      textSize(21);
+      text(":(", i, j, 20, 20);
+
+    }
+    
+  }
   break;
 
   case 2:
+
   background("blue");
-  text("case 2", 100, 100);
+  for (let j = 0; j <= height; j += 15){
+    for (let i = 0; i <= width; i += 10){
+      textSize(21);
+      text(":(", i, j, 20, 20);
+
+    }
+    
+  }
   break;
+  case 3:
+    background("orange");
+    for (let j = 0; j <= height; j += 25){
+      for (let i = 0; i <= width; i += 15){
+        textSize(21);
+        text(":(", i, j, 20, 20);
+  
+      }
+      
+    }
+    break;
+  
+    case 4:
+      background("yellow");
+      for (let j = 0; j <= height; j += 25){
+        for (let i = 0; i <= width; i += 5){
+          textSize(21);
+          text(":(", i, j, 20, 20);
+    
+        }
+        
+      }
+      break;
+    
 }
 
 }
 
 function mouseReleased(){
   state++;
-  if (state > 2) {
+  if (state > 4) {
     state = 0;
   }
 }
