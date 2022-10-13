@@ -31,7 +31,7 @@ function draw() {
       background("white");
       textAlign(CENTER);
       textStyle(BOLD);
-       text("12AM", 5, 22) ; 
+       text("12AM", 200, 50) ; 
        image(i2, 125, 100, 150, 250);
       break ;
       
@@ -39,7 +39,7 @@ function draw() {
         background("white");
         textAlign(CENTER);
         textStyle(BOLD);
-      text("4AM", 5, 22) ; 
+      text("4AM", 200, 50) ; 
       image(i3, 125, 100, 150, 250);
       break ;
       
@@ -47,7 +47,7 @@ function draw() {
         background("white");
         textAlign(CENTER);
         textStyle(BOLD);
-     text("TAKE A BREAK", 5, 22) ; 
+     text("TAKE A BREAK", 200, 50) ; 
      image(i4, 125, 100, 150, 250);
       break ;
     
