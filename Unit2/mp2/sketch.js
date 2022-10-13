@@ -16,7 +16,7 @@ let timer = 0 ;
 let vel = 0;
 let map1, map2, map3, map4, map5, map6, map7, map9;
 let goldenskull01, goldenskull02, goldenskull03, goldenskull04;
-let caught, skullawake, skullfed, blood;
+let caught, skullawake, skullfed, skullfed2, rebirth1, rebirth2, rebirth3, rebirth4;
 //audio trigger component
 let mic;
 let vol = 0;
@@ -48,9 +48,18 @@ function preload(){
   grassAct1.collider = "none";
   //skullrise = loadImage("assets/images/act1/skullrise.png");
   //grassAct1 = loadImage("assets/images/act1/grass.png");
+
+
   caught = loadAnimation("assets/images/act2/caught.png", {size: [800, 800], frames: 25});
   //caught.stop();
-  skullawake = loadAnimation("assets/images/act2/skullawake.png", {size: [800, 800], frames: 14})
+  skullawake = loadAnimation("assets/images/act2/skullawake.png", {size: [800, 800], frames: 14});
+  skullfed = loadAnimation("assets/images/act2/skullfed.png", {size: [800, 800], frames: 30});
+  skullfed2 = loadAnimation("assets/images/act2/skullfedpart2.png", {size: [800, 800], frames: 31});
+  rebirth1 = loadAnimation("assets/images/act2/rebirthpart1.png", {size: [800, 800], frames: 35});
+  rebirth2 = loadAnimation("assets/images/act2/rebirthpart2.png", {size: [800, 800], frames: 35});
+  rebirth3 = loadAnimation("assets/images/act2/rebirthpart3.png", {size: [800, 800], frames: 35});
+  rebirth4 = loadAnimation("assets/images/act2/rebirthpart4.png", {size: [800, 800], frames: 17});
+
   serge = loadAnimation("assets/images/act1/serge.png", {size: [322, 322], frames: 14});
   bleedingskull = new Sprite(500, 310);
   bleedingskull.addAnimation("bleed", "assets/images/act1/bleedingskull.png", {size: [294, 294], frames: 54});
@@ -232,20 +241,20 @@ switch (state) {
   timer++ ;
   if (timer > 2*60) {
   hare.ani = "running";
-  hare.vel.x = 9;
+  hare.vel.x = 6;
   sardana.ani = "running";
-  sardana.vel.x = 7;
+  sardana.vel.x = 4;
   horse.ani = "horseidle";
   horse.vel.x = 0;
   }
-  if (timer >4.5*60){
+  if (timer > 6*60){
     hare.remove();
     sardana.remove();
     nightsky.vel.y = 3;
     world.gravity.y = 10;
   }
   
-  if (timer > 7*60){
+  if (timer > 9*60){
     animation(horsedead, 425, 393);
     horsedead.looping = false;
     horse.remove();
@@ -253,10 +262,10 @@ switch (state) {
     serge.looping = false;
   }
 
-  if (timer > 7.5*60){
+  if (timer > 11*60){
     fire.y = 300;
   }
-  if (timer > 9*60){
+  if (timer > 13*60){
     timer = 0 ;
     state = 1;
   }
@@ -461,6 +470,11 @@ switch (state) {
 
   //state with first piece of skull
   case 8:
+
+    if (kb.pressing(' ')) {
+      state = 12;
+  }
+  
     textSize(18);
     text(
       "Click the screen first to give\npermission for mic input.\nMy volume is " +
@@ -636,7 +650,21 @@ switch (state) {
         
       } 
       if (timer > 6*60){
+        animation(skullfed, 400, 300);
+        skullfed.looping = false;
+        skullawake.visible = false;
+       
+      }
+      if (timer > 8*60){
+        animation(skullfed2, 400, 300);
+        skullfed2.looping = false;
+        skullfed.visible = false;
+      }
+      if (timer > 12*60){
+
         timer = 0;
+        skullfed2.visible = false;
+        state = 13
       }
       
       break;
@@ -644,8 +672,39 @@ switch (state) {
     //death
     case 13:
     image(map5, 0, 0);
-    caught.remove();
+    animation(rebirth1, 400, 300);
+    rebirth1.looping = false;
+    //caught.remove();
+    timer++;
+    if(timer>2*60){
+      animation(rebirth2, 400, 300);
+      rebirth2.looping = false;
+      rebirth1.visible = false;
+    }
+
+    if (timer > 4*60){
+      animation(rebirth3, 400, 300);
+      rebirth3.looping = false;
+      rebirth2.visible = false;
+
+    }
+
+    if (timer > 6*60){
+      animation(rebirth4, 400, 300);
+      rebirth4.looping = false;
+      rebirth3.visible = false;
+    }
+
+    if (timer > 8*60){
+      timer = 0;
+      rebirth4.visible = false;
+      state = 14;
+    }
     break;
+
+    case 14:
+      background("black");
+      break;
 }
 
 

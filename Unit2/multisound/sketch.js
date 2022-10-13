@@ -1,10 +1,16 @@
 let state = 0;
 let s1, s2, s3;
+let i1, i2, i3;
 
 function preload(){
-  s1 = loadSound("assets/allthat.mp3");
-  s2 = loadSound("assets/dreams.mp3");
-  s3 = loadSound("assets/league.mp3");}
+  s1 = loadSound("assets/khomus.wav");
+  s2 = loadSound("assets/ohuokhai.ogg");
+  s3 = loadSound("assets/void.wav");
+  i1 = loadImage("assets/khomus.jpg");
+  i2 = loadImage("assets/ysyakh.jpg");
+  i3 = loadImage("assets/existential.jpg");
+}
+  
 
 function setup() {
   createCanvas(500, 500);
@@ -23,8 +29,11 @@ switch (state) {
     if (!s1.isPlaying()){
       s1.play();
     }
-  background("red");
-  text("case 0", 100, 100);
+  background("grey");
+  textAlign(CENTER);
+  textStyle(BOLD);
+  text("Ihis is how khomus sound like. It's our national musical instrument \nIt's very important in our Sakha culture \nIt's a recording of my practice on khomus", 250, 100);
+  image(i1, 150, 180, 200, 230);
 
   
   break;
@@ -33,16 +42,22 @@ switch (state) {
     if (!s2.isPlaying()){
       s2.play();
     }
-  background("green");
-  text("case 1", 100, 100);
+  background("grey");
+  textAlign(CENTER);
+  textStyle(BOLD);
+  text("These are words for Osuokhai, Sakha circle dance. \nIt's also important to us. During mobilization in russia, \nwe chose Osuokhai as our form of protest.\nOn the photo is my attempt to celebrate Ysyakh, \nNew Year that we celebrate during summer", 250, 100);
+  image(i2, 75, 180, 350, 230);
   break;
 
   case 2:
     if (!s3.isPlaying()){
       s3.play();
     }
-  background("blue");
-  text("case 2", 100, 100);
+  background("grey");
+  textAlign(CENTER);
+  textStyle(BOLD);
+  text("This is a composition I wrote about existential crisis of being \nIndigenous Sakha person who's erased from history \nthanks to russian colonialism", 250, 100);
+  image(i3, 75, 180, 350, 200);
   break;
 }
 
