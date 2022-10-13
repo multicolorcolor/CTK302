@@ -20,7 +20,7 @@ function draw() {
   
   switch(numberOfTouches) {
     case 0: 
-    background("grey");
+    background("white");
     textAlign(CENTER);
     textStyle(BOLD);
       text("5PM", 200, 50) ; 
@@ -28,7 +28,7 @@ function draw() {
       break ;
       
       case 1: 
-      background("grey");
+      background("white");
       textAlign(CENTER);
       textStyle(BOLD);
        text("12AM", 5, 22) ; 
@@ -36,7 +36,7 @@ function draw() {
       break ;
       
       case 2:
-        background("grey");
+        background("white");
         textAlign(CENTER);
         textStyle(BOLD);
       text("4AM", 5, 22) ; 
@@ -44,7 +44,7 @@ function draw() {
       break ;
       
       case 3:
-        background("grey");
+        background("white");
         textAlign(CENTER);
         textStyle(BOLD);
      text("TAKE A BREAK", 5, 22) ; 
