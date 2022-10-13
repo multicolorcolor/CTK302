@@ -461,7 +461,16 @@ switch (state) {
 
   //state with first piece of skull
   case 8:
-
+    textSize(18);
+    text(
+      "Click the screen first to give\npermission for mic input.\nMy volume is " +
+        vol.toFixed(3) +
+        "\nApproaching Vol = " +
+        approachingVol.toFixed(3),
+      10,
+      60
+    );
+  
     //dying trigger
     vol = mic.getLevel();
     approachingVol += (vol - approachingVol) * ease;
