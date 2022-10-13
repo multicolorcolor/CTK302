@@ -704,6 +704,7 @@ switch (state) {
 
     case 14:
       background("black");
+
       break;
 }
 
@@ -737,7 +738,7 @@ function suoridle(){
 function movement(){
   if (kb.pressing('w')) {
 		suorij.ani = "back";
-		suorij.vel.y = -5;
+		suorij.vel.y = -2;
     //suorij.ani.playing = true;
 	}
   else if (kb.pressing('s')) {
@@ -915,4 +916,8 @@ function map08back(){
     goldenskull02.visible = false;
     goldenskull03.visible = false;
 }  
+}
+
+function touchStarted() {
+  getAudioContext().resume();
 }
