@@ -3,10 +3,12 @@ let state = 0;
 let window1, landscape, nightsky, sun, serge, grassAct1;
 let hare, sardana, horse, horsedead, night, fire, skullrise, bleedingskull, fan, fanmirror, fans, fansmirror, fangroup1, fangroup2;
 let floor, eyelid1, eyelid2;
+let knock;
 //act2 assets
 let cameratrigger, cameratrigger1, cameratrigger2, cameratrigger3, cameratrigger4, cameratrigger5, maskentrance;
 let cameratriggerupwoods, cameratriggerupdarkness, cameratriggerdowndarkness, cameratriggerupskull01, cameratriggerrightskull01;
 let triggerrightskull02, triggerdownskull02, triggerdownskull03, triggerleftskull03, triggerleftskull04, triggerupskull04;
+let quiet;
 //let camtr;
 let animationtrigger;
 let worldmap;
@@ -98,6 +100,12 @@ function preload(){
   balagan.visible = false;
   balagan.ani.looping = false;
   balagan.ani.stop();
+  knock = new Sprite(400, 300);
+  knock.addImage("assets/images/act1/knock.png");
+  knock.collider = "none";
+  knock.visible = false;
+  quiet = loadImage("assets/images/act2/quiet.png");
+
   goldenskull01 = new Sprite(685, 228, 232, 456, "none");
   goldenskull01.addImage("assets/images/act2/skull01.png");
   goldenskull01.visible = false;
@@ -426,8 +434,10 @@ switch (state) {
     suorij.overlap(animationtrigger, suoridle);
   image(map2, 0, 0);
   balagan.visible = true;
+  knock.visible = true;
   if (mouse.released()) {
     if (mouseX < 125 && mouseY > 316 && mouseY <569){
+      knock.remove();
       balagan.ani.play();
       suorij.vel.x = 3;
     }		
@@ -453,6 +463,7 @@ switch (state) {
   //state with darkness
   case 7:
   image(map4, 0, 0);
+  image(quiet, 0, 0);
   movement();
   //if (suorij.y <= 149){
   //  suorij.y = 600;
