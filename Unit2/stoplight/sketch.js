@@ -41,8 +41,11 @@ function draw() {
       fill("orange")
       circle(400, 300, 100);
       v=0.5;
-      if(x>400){
+      if(x>500){
         v=10;
+      }
+      if(x>250&&x<500){
+        v=0;
       }
 
       break;
@@ -52,7 +55,7 @@ function draw() {
       text("2", 100, 100);
       fill("green");
       circle(400, 500, 100);
-      v=10;
+      v=15;
       break;
      
 
