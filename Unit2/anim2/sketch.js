@@ -1,4 +1,11 @@
 let x = 0;
+let suorij;
+
+function preload(){
+  suorij = new Sprite(0, 250, 50, 250);
+
+  suorij.addAnimation("walk", "suorijright.png", {size: [250, 250], frames: 12});
+}
 function setup() {
   createCanvas(700, 500);
 }
@@ -6,15 +13,18 @@ function setup() {
 function draw() {
   background("gray");
 
-  push();
-  translate(x, 0);
-  avatar();
-  x += 5;
-  if (x > width){
-    x = -500;
+  //push();
+  //translate(x, 0);
+ // avatar();
+ // x += 5;
+ // if (x > width){
+ //   x = -500;
+ // }
+ // pop();
+  suorij.vel.x = 1;
+  if (suorij.x > width){
+    suorij.x = 0;
   }
-  pop();
-
 }
 
 function avatar(){
