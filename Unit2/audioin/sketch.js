@@ -1,10 +1,19 @@
 let mic;
 let vol = 0;
 let approachingVol = 0;
+let sardana, hare;
 
 // variables that you might want to tweak
 let theLoudestItGets = 0.2; // check your mic inputs and see how loud it gets, put it here.
 var ease = 0.08; // how responsive do you want this? Higher numbers mean faster response.
+
+function preload(){
+  sardana = new Sprite(0, 300);
+  sardana._scale = 0.5;
+  sardana.addAnimation("running", "sardana.png", {size: [200, 200], frames: 18}); 
+  hare = new Sprite(0, 200);
+  hare.addAnimation("running", "hare2.png", { size: [81, 81], frames: 9}); 
+}
 
 function setup() {
   createCanvas(400, 400);
@@ -37,11 +46,12 @@ function draw() {
   // this moves that first box
 //  x = vol*200 ;
  x = map(vol, 0, theLoudestItGets, 0, width);
-  rect(x, 200, 50, 50);
+  
+  hare.x = x;
 
   // use y for your "gradual" variable!
   y = map(approachingVol, 0, theLoudestItGets, 0, width);
-  rect(y, 270, 50, 50);
+  sardana.x = y;
 
 
   // this maps z to between 0 and 3 so you can switch on it.
