@@ -182,6 +182,8 @@ switch (state){
     //}
    
     background("grey");
+    menu.visible = false;
+    startbutton.visible = false; 
     introinstruction.visible = false;
     intro.visible = false;
     movement();
