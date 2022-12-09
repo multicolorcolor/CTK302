@@ -525,7 +525,7 @@ function mouseClicked(){
   //}
 
   if (mouseX > 307 && mouseX < 505 && mouseY > 365 && mouseY < 402){
-    state = 1;
+    state = 2;
   }
 
   if (mouseX > 14 && mouseX < 47 && mouseY > 253 && mouseY < 303 || mouseX > 752 && mouseX < 782 && mouseY > 253 && mouseY < 303){

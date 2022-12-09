@@ -414,8 +414,9 @@ switch (state) {
 
 //garbage state just for character entrance, because either timer or move animation didn't work properly
   case 5:
-    eyelid1.move(400, -600, 5);
-    eyelid2.move(400, 900, 3);
+    image(map2, 0, 0);
+    eyelid1.remove();
+    eyelid2.remove();
     hare.remove();
     sardana.remove();
     horse.remove();
@@ -429,10 +430,10 @@ switch (state) {
     sun.remove();
     window1.remove();
     suorij.visible = true;
-    animationtrigger.collider = "dynamic";
-    suorij.collider = "dynamic";
+    animationtrigger.collider = 'static';
+    //suorij.collider = 'dynamic';
     suorij.overlap(animationtrigger, suoridle);
-  image(map2, 0, 0);
+  
   balagan.visible = true;
   knock.visible = true;
   if (mouse.released()) {
