@@ -4,7 +4,7 @@ let url = "";
 let map, countryinfo;
 
 function preload(){
-  //map = loadImage("assets/map.png");
+  map = loadImage("assets/map.jpg");
 }
 
 function setup() {
@@ -35,8 +35,9 @@ function gotData(data) {
 }
 
 function draw() {
-  background("gray");
-  //image(map, width/2, height/2);
+  background("#eaddcd");
+  image(map, width/2, height/2);
+  map.resize(1280, 720);
   fill(255);
   textSize(12);
   text(mouseX + ", " + mouseY, 120, 120);
