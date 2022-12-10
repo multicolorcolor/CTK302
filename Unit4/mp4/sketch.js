@@ -118,7 +118,7 @@ class InternationalStudent {
     this.col = color("white");
     this.opacity = 0;
     this.studentopacity = 0;
-    this.pos = createVector(random(241, width), random(40, 675));
+    this.pos = createVector(random(-241, -300), random(-40, -675));
     //this.brazilpos = createVector(random(524,616), random(445,462));
     //this.ghanapos = createVector(random(672,753), random(293,309));
     //this.vel = createVector(random(2, 5), 0);
