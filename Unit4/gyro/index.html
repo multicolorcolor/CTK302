@@ -42,10 +42,14 @@
 					.catch(console.error)
 			} else {
 				alert('DeviceMotionEvent is not defined');
+				document.getElementById('request').style.display = 'none';
 			}
 		}
 		document.getElementById('request').onclick = requestT;
 	</script>
+
+<script src="https://p5play.org/v3/planck.js"></script>
+<script src="https://p5play.org/v3/p5.play.js"></script>
 
 	<!-- sketch -->
 	<script language="javascript" src="sketch.js"></script>

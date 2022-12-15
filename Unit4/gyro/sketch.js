@@ -17,6 +17,17 @@ function setup() {
   bunnyImage = loadImage("assets/bunny.png");
   imageMode(CENTER);
   rectMode(CENTER);
+  world.gravity.y = 10;
+
+	ball = new Sprite();
+	ball.diameter = 50;
+	ball.y = 30;
+
+	floor = new Sprite();
+	floor.collider = 'static';
+	floor.y = windowHeight;
+	floor.w = windowWidth;
+	floor.h = 15;
 
 }
 
