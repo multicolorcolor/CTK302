@@ -34,10 +34,7 @@ function gotData(data) {
 
 function draw() {
   background("green");
-  noStroke();
-  fill("blue");
-  quad(0, 0, 800, 0, 150, 35, 0, 15);
-  bezier(0, 15, 150, 35, 650, 65, 800, 50);
+
 
   // // iterate through the bubbles and display the objects!
   for (let i = 0; i < bubbles.length; i++) {
