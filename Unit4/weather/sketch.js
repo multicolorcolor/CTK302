@@ -7,14 +7,22 @@ let x = 0;
 let windspeed = 0;
 let temperature = 0;
 let humidity = 0;
+let answer;
+let fog, unty;
+
+function preload() {
+  fog = loadImage("assets/fog.png");
+  unty = loadImage("assets/unty.png");
+}
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(800, 600);
+  //imageMode(CENTER);
 
   // HERE is the call to get the weather. We build the string first.
 
   let myCityString =
-    "https://api.openweathermap.org/data/2.5/weather?q=Yakutsk,RU&units=metric&";
+    "https://api.openweathermap.org/data/2.5/weather?q=Yakutsk,RU&units=imperial&";
 
   //You can also use "zipcode"
   // substitute zip=61820 for q=Normal,IL,US
@@ -34,12 +42,14 @@ function gotData(data) {
   weather = data;
   print(weather); // for debugging purposes, print out the JSON data when we get it.
   windspeed = weather.wind.speed;
-  temperature = weather.main.temp;
+  temperature = weather.main.temp + "F";
   humidity = weather.main.humidity;
 
 }
 
 function draw() {
+
+  
   switch (state) {
       
     case 0:
@@ -61,22 +71,43 @@ function draw() {
 
       // }
       //temp = map(0, 100, )
-      background("grey");
+    
+      // else if (temperature = 6){
+      //   answer = "Not yet!"
+      // }
+      background("white");
+      image(fog, x, 250);
+      image(unty, 0, 0);
+      //fill(255);
+  
+      
+      
       fill("black");
-      text("What is the weather in " + weather.name + "?", 20, 20);
-      text("windspeed is " + windspeed, 20, 40);
-      text("temperature is " + temperature, 20, 60);
-      text("humidity is " + humidity + "%", 20, 80);
- 
+      textAlign(CENTER, CENTER);
+      text("Is it time to wear UNTY* in Yakutsk yet?", 554, 82);
+      text(answer, 554, 102);
+      //text(answer + "windspeed is " + windspeed, 20, 40);
+      text("Because the temperature is " + temperature, 554, 122);
+      text("You can start wearing UNTY \neven when it's just 5F", 554, 154);
+      text("Current humidity is " + humidity + "%", 554, 184);
+      text("And the windspeed is " + windspeed, 554, 204);
+      text("*Sakha traditional warm footwear. Made from deer or cow hide", 243, 567);
+      if (weather.main.temp < 5){
+        answer = "YES!"
+       }
+      else if (weather.main.temp > 5){
+        answer = "Not yet"
+       }
 
       // cloud
-      fill("white");
-      noStroke();
-      ellipse(x, 300, 200, 100);
+      // fill("white");
+      // noStroke();
+      // ellipse(x, 300, 200, 100);
+      
 
       // move the cloud's x position
-      x = x + windspeed / 3;
-      if (x > width) x = 0;
+      x = x + windspeed / 16;
+      if (x > 435) x = -107;
 
       break;
   }
