@@ -6,7 +6,12 @@ let bunnyImage;
 let xPosition = 0;
 let yPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
+let font1;
 
+function preload() {
+
+  font1 = loadFont('assets/AvenirLTStdBook.otf');
+}
 
 function setup() {
 
@@ -23,6 +28,7 @@ function setup() {
 function draw() {
 
   background('#c6f5ff'); // light blue
+  textFont(font1);
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2

@@ -9,10 +9,12 @@ let temperature = 0;
 let humidity = 0;
 let answer;
 let fog, unty;
+let font1;
 
 function preload() {
   fog = loadImage("assets/fog.png");
   unty = loadImage("assets/unty.png");
+  font1 = loadFont('assets/AvenirLTStdBook.otf');
 }
 
 function setup() {
@@ -84,6 +86,7 @@ function draw() {
       
       fill("black");
       textAlign(CENTER, CENTER);
+      textFont(font1);
       text("Is it time to wear UNTY* in Yakutsk yet?", 554, 82);
       text(answer, 554, 102);
       //text(answer + "windspeed is " + windspeed, 20, 40);

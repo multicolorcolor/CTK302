@@ -8,6 +8,7 @@ let map;
 let horseblack, horseblue, horsegreen, horsepink, horsered, horseyellow;
 let cowblack, cowblue, cowgreen, cowpink, cowred, cowyellow;
 let animalssetup = false;
+let font1;
 
 function preload(){
   map = loadImage("assets/greenmeadowmap.png");
@@ -23,6 +24,7 @@ function preload(){
   cowpink = loadImage("assets/cowpink.png");
   cowred = loadImage("assets/cowred.png");
   cowyellow = loadImage("assets/cowyellow.png");
+  font1 = loadFont('assets/AvenirLTStdBook.otf');
 }
 
 
@@ -67,6 +69,7 @@ function draw() {
   fill(255,255,255, introopacity01);
   textAlign(CENTER, CENTER);
   textSize(14);
+  textFont(font1);
   text(
     "Appearance of each animal here is an avatar predefined by answers of survey participants \nClick on an animal to learn what participants chose to answer where they were \n prompted to type anything that comes to mind",
     406, 518, 730, 50
