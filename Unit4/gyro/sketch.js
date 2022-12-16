@@ -7,6 +7,7 @@ let xPosition = 0;
 let yPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
 let font1;
+let ball, floor;
 
 function preload() {
 
@@ -16,8 +17,16 @@ function preload() {
 function setup() {
 
   createCanvas(400, 400);
+	world.gravity.y = 10;
 
+	ball = new Sprite();
+	ball.diameter = 50;
+	ball.y = 30;
 
+	floor = new Sprite(200, 400, 400, 5, "static");
+  floor = new Sprite(200, 0, 400, 5, "static");
+  floor = new Sprite(400, 200, 5, 400, "static");
+  floor = new Sprite(0, 200, 5, 400, "static");
 
   bunnyImage = loadImage("assets/bunny.png");
   imageMode(CENTER);
@@ -29,6 +38,9 @@ function draw() {
 
   background('#c6f5ff'); // light blue
   textFont(font1);
+  
+  textSize(12);
+  text(mouseX + ", " + mouseY, 120, 120);
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -41,10 +53,14 @@ function draw() {
   translate(xPosition, yPosition); // move everything over by x, y
 
   rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
+  
 
   image(bunnyImage, 0, 0, 500, 500);
   // rect(0, 0, 100, 100) ;
   pop();
+
+  //ball.x = xPosition;
+  ball.y = yPosition;
 
 
   // Text commands that display debugging data
