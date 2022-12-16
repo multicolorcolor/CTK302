@@ -44,7 +44,7 @@ function draw() {
 
   image(bunnyImage, 0, 0, 500, 500);
   // rect(0, 0, 100, 100) ;
-  //pop();
+  pop();
 
 
   // Text commands that display debugging data
@@ -68,7 +68,7 @@ function draw() {
   //noStroke();
   //textSize(300);
   //textAlign(CENTER);
- // text("ctk", width / 2, height / 2);
+ text("too empty", width / 2, height / 2);
 
 }
 
