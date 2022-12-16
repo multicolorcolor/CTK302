@@ -62,9 +62,7 @@ function gotData(data) {
 function draw() {
   background("green");
   image(map, width/2, height/2);
-  fill(255);
-  textSize(12);
-  text(mouseX + ", " + mouseY, 120, 120);
+
 
   fill(255,255,255, introopacity01);
   textAlign(CENTER, CENTER);
