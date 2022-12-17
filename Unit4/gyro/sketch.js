@@ -48,21 +48,21 @@ function draw() {
   xPosition = map(gamma, -60, 60, 0, width);
   yPosition = map(beta, -30, 30, 0, height);
 
-  push(); // before you use translate, rotate, or scale commands, push and then pop after
+  // push(); // before you use translate, rotate, or scale commands, push and then pop after
 
-  translate(xPosition, yPosition); // move everything over by x, y
+  // translate(xPosition, yPosition); // move everything over by x, y
 
-  rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
+  // rotate(radians(alpha)); // rotate the bunny depending on the alpha intake
   
 
-  image(bunnyImage, 0, 0, 100, 100);
-  // rect(0, 0, 100, 100) ;
-  pop();
+  // image(bunnyImage, 0, 0, 100, 100);
+  // // rect(0, 0, 100, 100) ;
+  // pop();
 
 
   // if (beta >= 30 && gamma >= -50 && gamma <= 50){
-     world.gravity.y = yPosition - 10;
-     world.gravity.x = xPosition - 10;
+     world.gravity.y = yPosition - 20;
+     world.gravity.x = xPosition - 20;
   // }
   // if (beta <= -30 && gamma >= -50 && gamma <= 50){
   //   world.gravity.y = -10;
