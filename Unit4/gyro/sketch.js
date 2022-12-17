@@ -70,7 +70,7 @@ function draw() {
   // if (beta >= 30 && gamma >= -50 && gamma <= 50){
     //  world.gravity.y = yPosition;
     //  world.gravity.x = xPosition;
-    gem.moveTowards(xPosition, yPosition, 0.05);
+    gems.moveTowards(xPosition, yPosition, 0.05);
      image(backgroundimage, width/2, height/2);
   // }
   // if (beta <= -30 && gamma >= -50 && gamma <= 50){
@@ -101,10 +101,10 @@ function draw() {
   // text("z = " + z.toFixed(4), 25, 190);
 
   // Text that makes CTK type in the background
-  //fill('white');
-  //noStroke();
+  fill('black');
+  noStroke();
   //textSize(300);
-  //textAlign(CENTER);
+  textAlign(CENTER);
  text("use your phone's gyroscope", width / 2, height / 2);
 
 }
