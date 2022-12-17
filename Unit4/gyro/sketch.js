@@ -7,10 +7,11 @@ let xPosition = 0;
 let yPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
 let font1;
-let ball, floor;
+let ball, floor, shine;
 
 function preload() {
   backgroundimage = loadImage("assets/background.png");
+  shine = loadImage("assets/shine.png");
   font1 = loadFont('assets/AvenirLTStdBook.otf');
 }
 
@@ -20,10 +21,13 @@ function setup() {
 	//world.gravity.y = 10;
 
 	gems = new Group();
+  //gems.shapeColor = 'white';
 	gems.diameter = 20;
 	gems.x = () => random(0, width);
 	gems.y = () => random(0, height);
-	gems.amount = 80;
+  gems.rotationLock = true;
+	gems.amount = 150;
+  
 
 	floor = new Sprite(200, 400, 400, 5, "static");
   floor = new Sprite(200, 0, 400, 5, "static");
@@ -37,6 +41,7 @@ function setup() {
 }
 
 function draw() {
+  //gems.addImage("assets/shine.png");
 
   background('#c6f5ff'); // light blue
   textFont(font1);
@@ -63,8 +68,9 @@ function draw() {
 
 
   // if (beta >= 30 && gamma >= -50 && gamma <= 50){
-     world.gravity.y = yPosition;
-     world.gravity.x = xPosition;
+    //  world.gravity.y = yPosition;
+    //  world.gravity.x = xPosition;
+    gem.moveTowards(xPosition, yPosition, 0.05);
      image(backgroundimage, width/2, height/2);
   // }
   // if (beta <= -30 && gamma >= -50 && gamma <= 50){
@@ -79,17 +85,17 @@ function draw() {
 
 
   //Text commands that display debugging data
-  textAlign(LEFT);
-  textSize(20);
-  fill('black');
-  text("orientation data:", 25, 25);
-  textSize(15);
-  text("alpha: " + alpha, 25, 50);
- text("beta: " + beta, 25, 70);
-  text("gamma: " + gamma, 25, 90);
-  textSize(20);
-  text("acceleration data:", 25, 125);
-  textSize(15);
+//   textAlign(LEFT);
+//   textSize(20);
+//   fill('black');
+//   text("orientation data:", 25, 25);
+//   textSize(15);
+//   text("alpha: " + alpha, 25, 50);
+//  text("beta: " + beta, 25, 70);
+//   text("gamma: " + gamma, 25, 90);
+//   textSize(20);
+//   text("acceleration data:", 25, 125);
+//   textSize(15);
   // text("x = " + x.toFixed(2), 25, 150); // .toFixed means just show (x) decimal places
   // text("y = " + y.toFixed(2), 25, 170);
   // text("z = " + z.toFixed(4), 25, 190);
@@ -99,7 +105,7 @@ function draw() {
   //noStroke();
   //textSize(300);
   //textAlign(CENTER);
- text("too empty", width / 2, height / 2);
+ text("use your phone's gyroscope", width / 2, height / 2);
 
 }
 
