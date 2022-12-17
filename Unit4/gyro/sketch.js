@@ -17,7 +17,7 @@ function preload() {
 function setup() {
 
   createCanvas(400, 400);
-	world.gravity.y = 10;
+	//world.gravity.y = 10;
 
 	ball = new Sprite();
 	ball.diameter = 50;
@@ -60,6 +60,9 @@ function draw() {
   pop();
 
 
+  if (beta > 0 && gamma > -50 && gamma < 50){
+    world.gravity.y = 10;
+  }
 
 
   //Text commands that display debugging data
