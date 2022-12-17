@@ -61,8 +61,8 @@ function draw() {
 
 
   // if (beta >= 30 && gamma >= -50 && gamma <= 50){
-     world.gravity.y = yPosition;
-     world.gravity.x = xPosition;
+     world.gravity.y = yPosition - 10;
+     world.gravity.x = xPosition - 10;
   // }
   // if (beta <= -30 && gamma >= -50 && gamma <= 50){
   //   world.gravity.y = -10;
