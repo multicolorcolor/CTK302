@@ -45,8 +45,8 @@ function draw() {
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
-  xPosition = map(gamma, -60, 60, 0, width);
-  yPosition = map(beta, -30, 30, 0, height);
+  xPosition = map(gamma, 0, 10, 0, width);
+  yPosition = map(beta, 0, 10, 0, height);
 
   // push(); // before you use translate, rotate, or scale commands, push and then pop after
 
@@ -61,8 +61,8 @@ function draw() {
 
 
   // if (beta >= 30 && gamma >= -50 && gamma <= 50){
-     world.gravity.y = yPosition - 20;
-     world.gravity.x = xPosition - 20;
+     world.gravity.y = yPosition;
+     world.gravity.x = xPosition;
   // }
   // if (beta <= -30 && gamma >= -50 && gamma <= 50){
   //   world.gravity.y = -10;
