@@ -60,18 +60,18 @@ function draw() {
   pop();
 
 
-  // if (beta >= 30 && gamma >= -50 && gamma <= 50){
-  //   world.gravity.y = 10;
-  // }
-  // if (beta <= -30 && gamma >= -50 && gamma <= 50){
-  //   world.gravity.y = -10;
-  // }
+  if (beta >= 30 && gamma >= -50 && gamma <= 50){
+    world.gravity.y = 10;
+  }
+  if (beta <= -30 && gamma >= -50 && gamma <= 50){
+    world.gravity.y = -10;
+  }
 
-  push();
-  translate(xPosition, yPosition);
-  world.gravity.y = 10;
-  world.gravity.x = 10;
-  pop();
+  // push();
+  // translate(xPosition, yPosition);
+  // world.gravity.y = 10;
+  // world.gravity.x = 10;
+  // pop();
 
 
   //Text commands that display debugging data
