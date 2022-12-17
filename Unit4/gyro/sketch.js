@@ -19,9 +19,11 @@ function setup() {
   createCanvas(400, 400);
 	//world.gravity.y = 10;
 
-	ball = new Sprite();
-	ball.diameter = 20;
-	ball.y = 30;
+	gems = new Group();
+	gems.diameter = 20;
+	gems.x = () => random(0, width);
+	gems.y = () => random(0, height);
+	gems.amount = 80;
 
 	floor = new Sprite(200, 400, 400, 5, "static");
   floor = new Sprite(200, 0, 400, 5, "static");
