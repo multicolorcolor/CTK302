@@ -2,7 +2,7 @@
 Make sure you turn on orientation lock on your iPhone or Android device. */
 
 let alpha = 0, beta = 0 , gamma = 0; // gyroscope variablers
-let bunnyImage;
+let bunnyImage, backgroundimage;
 let xPosition = 0;
 let yPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
@@ -10,7 +10,7 @@ let font1;
 let ball, floor;
 
 function preload() {
-
+  backgroundimage = loadImage("assets/background.png");
   font1 = loadFont('assets/AvenirLTStdBook.otf');
 }
 
@@ -20,7 +20,7 @@ function setup() {
 	//world.gravity.y = 10;
 
 	ball = new Sprite();
-	ball.diameter = 50;
+	ball.diameter = 20;
 	ball.y = 30;
 
 	floor = new Sprite(200, 400, 400, 5, "static");
@@ -45,8 +45,8 @@ function draw() {
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
-  xPosition = map(gamma, 0, 1, 0, width);
-  yPosition = map(beta, 0, 1, 0, height);
+  xPosition = map(gamma, 0, 0, 400, width);
+  yPosition = map(beta, 0, 0, 400, height);
 
   // push(); // before you use translate, rotate, or scale commands, push and then pop after
 
@@ -63,6 +63,7 @@ function draw() {
   // if (beta >= 30 && gamma >= -50 && gamma <= 50){
      world.gravity.y = yPosition;
      world.gravity.x = xPosition;
+     image(backgroundimage, width/2, height/2);
   // }
   // if (beta <= -30 && gamma >= -50 && gamma <= 50){
   //   world.gravity.y = -10;
