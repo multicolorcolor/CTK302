@@ -60,10 +60,10 @@ function draw() {
   pop();
 
 
-  if (beta > 30 && gamma > -50 && gamma < 50){
+  if (beta >= 30 && gamma >= -50 && gamma <= 50){
     world.gravity.y = 10;
   }
-  if (beta < -30 && gamma > -50 && gamma < 50){
+  if (beta <= -30 && gamma >= -50 && gamma <= 50){
     world.gravity.y = -10;
   }
 
