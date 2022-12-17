@@ -7,7 +7,7 @@ let xPosition = 0;
 let yPosition = 0;
 let x = 0, y = 0, z = 0 ; // accelerometer data
 let font1;
-let ball, floor, shine;
+let ball, floor, shine, bounds;
 
 function preload() {
   backgroundimage = loadImage("assets/background.png");
@@ -27,7 +27,13 @@ function setup() {
 	gems.y = () => random(0, height);
   gems.rotationLock = true;
 	gems.amount = 150;
-  
+
+
+  bounds = new Sprite(145, 157, 105, 15, "static");
+  bounds = new Sprite(305, 107, 105, 15, "static");
+  bounds.rotation = -12;
+  bounds = new Sprite(285, 257, 105, 15, "static");
+  bounds.rotation = -45;
 
 	floor = new Sprite(200, 400, 400, 5, "static");
   floor = new Sprite(200, 0, 400, 5, "static");
